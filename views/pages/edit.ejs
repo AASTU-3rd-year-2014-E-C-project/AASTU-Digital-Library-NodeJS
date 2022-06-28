@@ -1,0 +1,87 @@
+
+<%- include('../partials/header'); -%>
+<%- include('../partials/navigation'); -%>
+
+<div class="container p-2">
+    <div class="row">
+        <div class="col-md-7 mx-auto container1">
+			<div class="card text-center">
+				<div class="card-header bg-info">
+					<h3>Edit Course Details</h3>
+				</div>
+				
+				<div class="card-body">
+					<form action="" method="POST" class = "form-inline">
+						<div class="row">
+							<div class="col-12">
+								<label for="course_title" class="float-left">Book Title</label>
+								<input type="text" class="input" name="book_title" id="course_title"
+									Placeholder="Title" value="<%= data.title %>">
+							</div>
+							<div class="col-12">
+								<label for="course_code" class="float-left">Author</label>
+								<input type="text" class="input" name="book_author" id="course_code"
+									Placeholder="Author" value="<%= data.author %>">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-12">
+								<label for="course_desc" class="float-left">Description</label>
+								<textarea class="input" rows="2" cols="65" name="book_desc" id="course_desc"
+									Placeholder="Provide a short description for the book ..."><%= data.description %></textarea>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-6">
+								<label for="course_cat" class="float-left">Genre</label>
+								<input type="text" class="input" name="book_genre" id="course_cat"
+									placeholder="Genre" value="<%= data.genre %>">
+							</div>
+							<div class="col-6 mb-2">
+								<label for="certificate" class="float-left">Edition </label>
+								<input type="text" class="input" name="book_edition" id="certificate"
+									placeholder="Edition (number)" value="<%= data.edition %>">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-6">
+								<label for="course_dur" class="float-left">Page Count</label>
+								<input type="text" class="input" name="book_count" id="course_dur"
+									placeholder="Page Count (number)" value="<%= data.count %>">
+							</div>
+							<div class="col-6 mb-2">
+								<label for="course_cost" class="float-left">Keywords </label>
+								<input type="text" class="input" name="book_keyword" id="course_cost"
+									placeholder="Keywords" value="<%= data.keyword %>">
+							</div>
+						</div>
+
+						<% if(typeof msg !='undefined' && msg !="" ) { %>
+							<div class="col-12">
+								<div class="success-msg">
+									<%= msg %>
+								</div>
+							</div>
+							<% } if(typeof error !=='undefined' && error !="" ) { %>
+								<div class="col-12">
+									<div class="err-msg">
+										<%= error %>
+									</div>
+								</div>
+								<% } %>
+
+									<div class="col-3 form-btns">
+										<input type="submit" value="Save">
+									</div>							
+					</form>
+					
+				</div>	<!-- end of card-body class -->
+			</div>	<!-- end of column class -->
+		</div>	<!-- end of row class -->
+	</div>	<!-- end of card class -->
+</div> 	<!-- end of container class -->
+
+<%- include('../partials/footer'); -%>

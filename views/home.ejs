@@ -1,0 +1,75 @@
+<%- include('./partials/header'); -%>
+  <%- include('./partials/navigation'); -%>
+
+    <div id="container" style="background-color: rgb(184, 209, 224);">
+      <div class="row">
+        <div class="col" style="padding: 0 90px;">
+          <h2 style="text-align: center; margin: 15px;">Books List </h2>
+          <div class="cards-my-custom" style="display: grid;
+          margin: auto;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-gap: 0;
+          justify-items: center;
+      ">
+            <% if(data.length> 0){
+              data.forEach(function(data){
+              %>
+              <!-- <article class="card-custom">
+              <a href="#">
+                <figure class="card-thumb">
+                  <img src="<%= data.imagePath %>" alt="Course Image">
+                </figure>
+                <div class="card-content">
+                  <h3 class="card-title">
+                    <%= data.title %>
+                  </h3>
+                  <h4 class="card-title"> (<%= data.code %>)</h4>
+                  <p class="card-excerpt">
+                    <%= data.description %>
+                  </p>
+                </div>
+              </a>
+            </article> -->
+              <!-- <div class="card card-custom" style="width: 18rem; margin-top: 15px;">
+                <img src="<%= data.imagePath %>" class="card-img-top" alt="..." style="height: 50%;">
+                <a href="#">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <%= data.title %>
+                    </h5>
+                    <h6 style="text-align: center;"><i>
+                        <%= data.author %>
+                      </i></h6>
+                    <p class="card-text">
+                      <%= data.description %>
+                    </p>
+                    <a href="#" class="btn btn-primary" style="display: none;">Go somewhere</a>
+                  </div>
+                </a>
+              </div> -->
+              <div class="book-card">
+                <div class="cover-container">
+                  <img src="<%= data.imagePath %>" alt="<%= data.title %>_cover">
+                </div>
+                <div class="title">
+                  <%= data.title %>
+                </div>
+                <div class="author">
+                  <%= data.author %>
+                </div>
+                <div class="genre"><%= data.genre %></div>
+              </div>
+              <% }); } else{ %>
+                <article class="card-custom">
+                  <div class="card-content">
+                    <h2 class="card-title"> No Books Added </h2>
+                  </div>
+                </article>
+                <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <%- include('./partials/footer'); -%>
