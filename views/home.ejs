@@ -47,7 +47,8 @@
                   </div>
                 </a>
               </div> -->
-              <div class="book-card">
+              <a href="./pages/displayDetail/<%= data.book_id %>" class="text-decoration-none" style="color: black !important;">
+              <div class="book-card <%= data.book_id %>">
                 <div class="cover-container">
                   <img src="<%= data.imagePath %>" alt="<%= data.title %>_cover">
                 </div>
@@ -59,6 +60,7 @@
                 </div>
                 <div class="genre"><%= data.genre %></div>
               </div>
+            </a>
               <% }); } else{ %>
                 <article class="card-custom">
                   <div class="card-content">

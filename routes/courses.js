@@ -5,6 +5,7 @@ const app = express();
 
 const {
 		recordDisplayPage,
+		displayDetailPage,
 		addRecordPage,
 		addRecord,
 		recordEditPage,
@@ -27,6 +28,8 @@ const validator = require('../lib/validation_rules');
 router.get('/pages/display', isLoggedin, recordDisplayPage);
 router.post('/pages/display', isLoggedin, recordDisplayPage);
 
+router.get('/pages/displayDetail/:id', isLoggedin, displayDetailPage);
+
 router.get('/pages/add', isLoggedin, addRecordPage);
 router.post('/pages/add', isLoggedin, validator.validationRules[2], addRecord);
 
@@ -43,5 +46,6 @@ router.get('/pages/addImage/:id', isLoggedin, imageUploadPage);
 router.post('/pages/addImage/:id', isLoggedin, uploadImage);
 
 router.get('/pages/delete/:id', isLoggedin, recordDeletePage);
+
 
 module.exports = router;

@@ -93,6 +93,21 @@ exports.recordDisplayPage = (req, res, next) => {
 	});	
 }
 
+exports.displayDetailPage = (req, res, next) => {
+	var book_id = req.params.id
+
+	var queryDetail = `SELECT * FROM book_list WHERE book_id = '${book_id}'`
+
+	dbConn.query(queryDetail, (error, result)=>{
+	
+		if(error)
+			throw error;
+
+		const msg = req.flash ('success')
+		res.render('pages/displayDetail', {data:result[0], msg: msg, title:result[0].title, userLevel: req.session.level});
+	});	
+}
+
 // Record Add Page
 exports.addRecordPage = (req, res, next) => {
     res.render("pages/add", {title:'Add Record'});
