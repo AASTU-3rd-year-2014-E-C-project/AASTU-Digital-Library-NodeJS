@@ -295,7 +295,7 @@ exports.uploadImage = (req, res, next) => {
 			
 			//remove existing image
 			else{
-				if (oldImagePath && oldImagePath != "None" && oldImagePath != imgsrc)
+				if (oldImagePath && oldImagePath != "/images/no_cover.jpg" && oldImagePath != imgsrc)
 					fs.unlinkSync('public' + oldImagePath);
 			}
 			req.flash("msg", "Image is uploaded. Go back to Home page & check it.")
